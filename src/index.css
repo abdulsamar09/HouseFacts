@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 25% 3%;
+    --foreground: 45 25% 95%;
+
+    --card: 222 25% 6%;
+    --card-foreground: 45 25% 95%;
+
+    --popover: 222 25% 6%;
+    --popover-foreground: 45 25% 95%;
+
+    --primary: 43 75% 58%;
+    --primary-foreground: 222 25% 3%;
+
+    --secondary: 222 20% 12%;
+    --secondary-foreground: 45 25% 85%;
+
+    --muted: 222 20% 10%;
+    --muted-foreground: 222 15% 55%;
+
+    --accent: 43 85% 65%;
+    --accent-foreground: 222 25% 3%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 43 40% 25%;
+    --input: 222 20% 12%;
+    --ring: 43 75% 58%;
+
+    --radius: 1rem;
+
+    /* Luxury Gold tokens */
+    --gold-light: 45 100% 85%;
+    --gold: 43 75% 58%;
+    --gold-muted: 43 50% 45%;
+    --gold-dark: 35 60% 30%;
+    --gold-deep: 30 70% 15%;
+
+    --surface-glass: 222 30% 6% / 0.7;
+    --navy-deep: 222 35% 4%;
+
+    --sidebar-background: 222 25% 4%;
+    --sidebar-foreground: 45 20% 88%;
+    --sidebar-primary: 43 75% 58%;
+    --sidebar-primary-foreground: 222 25% 3%;
+    --sidebar-accent: 222 20% 12%;
+    --sidebar-accent-foreground: 45 20% 88%;
+    --sidebar-border: 222 20% 12%;
+    --sidebar-ring: 43 75% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #03050e;
+    color: hsl(var(--foreground));
+    font-family: 'Inter', 'Space Grotesk', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg,
+        hsl(var(--gold-light)) 0%,
+        hsl(var(--gold)) 35%,
+        hsl(var(--gold-muted)) 65%,
+        hsl(var(--gold-dark)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gold-gradient {
+    background: linear-gradient(135deg,
+        hsl(var(--gold-light)) 0%,
+        hsl(var(--gold)) 50%,
+        hsl(var(--gold-dark)) 100%);
+  }
+
+  .glass-premium {
+    background: hsla(var(--background) / 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(var(--gold) / 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 30px hsla(var(--gold) / 0.2),
+      0 0 60px hsla(var(--gold) / 0.1);
+  }
+
+  .glow-text-gold {
+    text-shadow: 0 0 20px hsla(var(--gold) / 0.4),
+      0 0 40px hsla(var(--gold) / 0.2);
+  }
+
+  .premium-border {
+    border: 1px solid hsla(var(--gold) / 0.2);
+    position: relative;
+  }
+
+  .premium-border::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsla(var(--gold-light) / 0.3), transparent, hsla(var(--gold-dark) / 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .heavy-layout-shadow {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Unused legacy classes removed for optimization */
